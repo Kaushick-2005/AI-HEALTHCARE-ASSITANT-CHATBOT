@@ -9,10 +9,10 @@ nlp = spacy.load("en_core_web_sm")
 medical_responses = {
     # Common Symptoms
     "headache": "🤕 **Headache:** Headaches can be caused by stress, dehydration, or underlying health conditions. Try resting, drinking water, and avoiding screen time. If pain persists, consult a doctor.",
-    "fever": "🌡️ **Fever:** A fever is often a sign of infection. Stay hydrated, get plenty of rest, and take over-the-counter medication if needed. If fever exceeds 102°F (39°C) or lasts more than 3 days, seek medical advice.",
-    "cough": "🤧 **Cough:** A cough may be caused by colds, flu, allergies, or respiratory infections. Drink warm fluids, use a humidifier, and avoid smoking. If it persists for more than 2 weeks, consult a doctor.",
-    "sore throat": "😖 **Sore Throat:** A sore throat can be due to a viral or bacterial infection. Gargle with warm salt water, drink honey tea, and avoid irritants like smoke.",
-    "fatigue": "😴 **Fatigue:** Feeling tired all the time? It could be due to lack of sleep, stress, anemia, or an underlying condition. Try improving sleep habits and diet. If persistent, check with a doctor.",
+    "fever": "🌡️ Fever: A fever is often a sign of infection. Stay hydrated, get plenty of rest, and take over-the-counter medication if needed. If fever exceeds 102°F (39°C) or lasts more than 3 days, seek medical advice.",
+    "cough": "🤧 Cough: A cough may be caused by colds, flu, allergies, or respiratory infections. Drink warm fluids, use a humidifier, and avoid smoking. If it persists for more than 2 weeks, consult a doctor.",
+    "sore throat": "😖 Sore Throat: A sore throat can be due to a viral or bacterial infection. Gargle with warm salt water, drink honey tea, and avoid irritants like smoke.",
+    "fatigue": "😴 Fatigue: Feeling tired all the time? It could be due to lack of sleep, stress, anemia, or an underlying condition. Try improving sleep habits and diet. If persistent, check with a doctor.",
     "nausea": "🤢 **Nausea:** Nausea can be caused by motion sickness, food poisoning, pregnancy, or gastrointestinal issues. Try eating small meals, drinking ginger tea, and staying hydrated.",
     "vomiting": "🤮 **Vomiting:** Stay hydrated with electrolyte drinks and avoid solid foods until you feel better. If vomiting persists for more than 24 hours, seek medical help.",
     "dizziness": "💫 **Dizziness:** Dizziness can be caused by dehydration, low blood pressure, or inner ear issues. Sit down, drink water, and avoid sudden movements.",
@@ -87,7 +87,7 @@ def type_response(response):
     for char in response:
         message += char
         time.sleep(0.02)  # Adjust typing speed
-        st.write(f"**Chatbot:** {message}", unsafe_allow_html=True)
+        st.write(f"Chatbot: {message}", unsafe_allow_html=True)
         st.empty()  # Refresh the text dynamically
     st.write(f'<div class="bot-response">{response}</div>', unsafe_allow_html=True)
 
@@ -157,15 +157,15 @@ def main():
     # Chatbot UI Layout
     st.markdown('<div class="main-container">', unsafe_allow_html=True)
     st.title("💡 AI Healthcare Assistant Chatbot")
-    st.write("🤖 **Ask me anything related to healthcare!**")
+    st.write("🤖 Ask me anything related to healthcare!")
 
     user_input = st.text_input("💬 Enter your question:")
 
     if st.button("Submit"):
         if user_input:
-            st.markdown(f'<div class="user-message">**You:** {user_input}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="user-message"> You: {user_input}</div>', unsafe_allow_html=True)
             response = healthcare_chatbot(user_input)
-            st.markdown(f'<div class="bot-response">**Chatbot:** {response}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="bot-response">Chatbot: {response}</div>', unsafe_allow_html=True)
         else:
             st.warning("⚠️ Please enter a query before submitting.")
     
